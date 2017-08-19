@@ -36,7 +36,7 @@ Editor.create = function(){
 	// Button - Add a state!
 	var addState = document.createElement("div");
 	addState.className = "editor_fancy_button";
-	addState.innerHTML = "<span>+</span>添加新物体";
+	addState.innerHTML = '<span style="line-height: 40px;">+</span>添加新物体';
 	addState.onclick = function(){
 
 		// New state config
@@ -104,98 +104,41 @@ Editor.create = function(){
 	// If options allow saving changes, and export data
 	if(UI.options.edit==UI.ADVANCED){
 
-    /*
-
-		// Divider
-		Editor.dom.appendChild(document.createElement("br"));
-
-		// Save your changes
-		var saveChanges = document.createElement("div");
-		saveChanges.className = "editor_fancy_button";
-		saveChanges.id = "save_changes";
-		saveChanges.innerHTML = "<span style='font-size:30px; line-height:40px'>★</span>保存你的模型";
-		saveChanges.onclick = function(){
-			saveLabel.innerHTML = "正在保存……";
-			embedLabel.innerHTML = "……";
-			saveLink.value = "...";
-			embedLink.value = "...";
-			Save.uploadModel();
-		};
-		Editor.dom.appendChild(saveChanges);
-
-		// Save your changes, label & link, label & embed
-
-		// save label
-		var saveLabel = Editor.createLabel("保存之后你会在此得到一个链接：")
-		saveLabel.style.display = "block";
-		saveLabel.style.margin = "10px 0";
-		Editor.dom.appendChild(saveLabel);
-
-		// save link
-		var saveLink = document.createElement("input");
-		saveLink.type = "text";
-		saveLink.className = "editor_save_link";
-		saveLink.setAttribute("readonly",true);
-		saveLink.onclick = function(){
-			saveLink.select();
-		};
-		Editor.dom.appendChild(saveLink);
-
-		// embed label
-		var embedLabel = Editor.createLabel("和一个嵌入代码：")
-		embedLabel.style.display = "block";
-		embedLabel.style.margin = "10px 0";
-		Editor.dom.appendChild(embedLabel);
-
-		// embed link
-		var embedLink = document.createElement("input");
-		embedLink.type = "text";
-		embedLink.className = "editor_save_link";
-		embedLink.setAttribute("readonly",true);
-		embedLink.onclick = function(){
-			embedLink.select();
-		};
-		Editor.dom.appendChild(embedLink);
-
-		// divider
-		Editor.dom.appendChild(document.createElement("br"));
-		Editor.dom.appendChild(document.createElement("br"));
-		Editor.dom.appendChild(document.createElement("br"));
-
-		// on save success
-		subscribe("/save/success",function(link){
-
-			saveLabel.innerHTML = "完成！ <a href='"+link+"' target='_blank'>（在新标签页打开）</a>";
-			saveLink.value = link;
-			embedLabel.innerHTML = "在你的网站粘贴这段代码来嵌入：";
-
-			var width = 800;
-			var height = Math.round(width/(document.body.clientWidth/document.body.clientHeight));
-			embedLink.value = '<iframe width="'+width+'" height="'+height+'" src="'+link+'" frameborder="0"></iframe>';
-
-		});
-
-    */
-
 		// Export your data
 		var exportModel = document.createElement("div");
 		exportModel.className = "editor_fancy_button";
-		exportModel.id = "save_changes";
-		exportModel.innerHTML = "<span style='font-size:25px; line-height:35px; font-family:monospace'>{}</span>导出模型";
+    exportModel.id = "save_changes";
+    exportModel.style.marginBottom = "20px";
+		exportModel.innerHTML = "<span style='font-size:25px; line-height:42px; font-family:monospace'>{}</span>导出模型";
 		exportModel.onclick = function(){
       var blob = new Blob([JSON.stringify(Model.data)], {type: "text/json;charset=utf-8"});
       saveAs(blob, "model.json");
 		};
 		Editor.dom.appendChild(exportModel);
 
-		// export label
-		var exportLabel = Editor.createLabel(
-			"这是提供给那些想要把模拟保存在自己的电脑上的人的！"+
-			"<a href='https://github.com/ncase/simulating#how-to-run-this-on-your-own-computertron' target='_blank'>点此查看使用方法</a> "
-		);
-		exportLabel.style.display = "block";
-		exportLabel.style.margin = "10px 0";
-		Editor.dom.appendChild(exportLabel);
+    // Load your data
+    var loadInput = document.createElement("input");
+    loadInput.id = "load_model_input";
+    loadInput.type = "file";
+    loadInput.accept = ".json";
+    loadInput.onchange = function () {
+      var reader = new FileReader();
+      reader.onload = function (event) {
+        Editor.dom.innerHTML = "";
+        var loadData = JSON.parse(event.target.result)
+        Model.init(loadData);
+        Model.backup = loadData;
+      };
+      reader.readAsText(this.files[0]);
+    };
+
+    var loadModel = document.createElement("div");
+		loadModel.className = "editor_fancy_button";
+    loadModel.id = "load_model";
+    loadModel.style.marginBottom = "20px";
+		loadModel.innerHTML = "<span style='font-size:25px; line-height:42px; font-family:monospace'>{}</span>载入模型";
+		loadModel.onclick = function(){ loadInput.click(); };
+		Editor.dom.appendChild(loadModel);
 
 	}
 

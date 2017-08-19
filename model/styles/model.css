@@ -87,11 +87,11 @@ THE EDITOR
     background: none;
     margin: 0;
 	border: none;
-	
+
 	width: 100%;
     resize: none;
     overflow: hidden;
-    
+
 }
 #editor .editor_textarea{
     background: #ccc;
@@ -195,6 +195,12 @@ THE EDITOR
 #editor .editor_fancy_button#save_changes:hover{
 	background: #555;
 }
+#editor .editor_fancy_button#load_model{
+	background: #333;
+}
+#editor .editor_fancy_button#load_model:hover{
+	background: #555;
+}
 #editor .editor_fancy_button span{
 	font-size: 40px;
     width: 40px;
@@ -212,7 +218,7 @@ THE EDITOR
 	font-size: 14px;
 }
 #editor select{
-	
+
 	max-width:120px;
 
 	font-family: 'OpenSansEmoji', Helvetica, Arial, sans-serif;
