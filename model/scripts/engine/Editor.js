@@ -104,6 +104,8 @@ Editor.create = function(){
 	// If options allow saving changes, and export data
 	if(UI.options.edit==UI.ADVANCED){
 
+    /*
+
 		// Divider
 		Editor.dom.appendChild(document.createElement("br"));
 
@@ -172,6 +174,8 @@ Editor.create = function(){
 			embedLink.value = '<iframe width="'+width+'" height="'+height+'" src="'+link+'" frameborder="0"></iframe>';
 
 		});
+
+    */
 
 		// Export your data
 		var exportModel = document.createElement("div");
