@@ -26,7 +26,7 @@ Editor.create = function(){
 	///// STATES DOM /////
 	//////////////////////
 
-	var title = Editor.createTitle("<span>THINGS</span> WITH RULES");
+	var title = Editor.createTitle("<span>物体</span>与规则");
 	Editor.dom.appendChild(title);
 
 	Editor.statesDOM = document.createElement("div");
@@ -36,7 +36,7 @@ Editor.create = function(){
 	// Button - Add a state!
 	var addState = document.createElement("div");
 	addState.className = "editor_fancy_button";
-	addState.innerHTML = "<span>+</span>make new thing";
+	addState.innerHTML = "<span>+</span>添加新物体";
 	addState.onclick = function(){
 
 		// New state config
@@ -44,8 +44,8 @@ Editor.create = function(){
 		var newStateConfig = {
 			id: Model.generateNewID(),
 			icon: emoji.icon,
-			name: "[new thing]",
-			description: "Click icon & paste in new emoji:\nMac: press control+command+space\nOther: copy from Emojipedia.org",
+			name: "新物体",
+			description: "点击图标并粘贴一个新的 emoji",
 			actions: []
 		};
 
@@ -71,7 +71,7 @@ Editor.create = function(){
 	///// WORLD DOM /////
 	/////////////////////
 
-	var title = Editor.createTitle("THE <span>WORLD</span>");
+	var title = Editor.createTitle("<span>世界</span>");
 	Editor.dom.appendChild(title);
 
 	Editor.worldDOM = document.createElement("div");
@@ -94,7 +94,7 @@ Editor.create = function(){
 	var undoChanges = document.createElement("div");
 	undoChanges.className = "editor_fancy_button";
 	undoChanges.style.marginBottom = "20px";
-	undoChanges.innerHTML = "<span style='font-size:25px; line-height:40px;'>⟳</span>undo all changes";
+	undoChanges.innerHTML = "<span style='font-size:25px; line-height:40px;'>⟳</span>取消所有改动";
 	undoChanges.onclick = function(){
 		publish("/meta/reset");
 		Model.returnToBackup();
@@ -111,10 +111,10 @@ Editor.create = function(){
 		var saveChanges = document.createElement("div");
 		saveChanges.className = "editor_fancy_button";
 		saveChanges.id = "save_changes";
-		saveChanges.innerHTML = "<span style='font-size:30px; line-height:40px'>★</span>save your model";
+		saveChanges.innerHTML = "<span style='font-size:30px; line-height:40px'>★</span>保存你的模型";
 		saveChanges.onclick = function(){
-			saveLabel.innerHTML = "saving...";
-			embedLabel.innerHTML = "...";
+			saveLabel.innerHTML = "正在保存……";
+			embedLabel.innerHTML = "……";
 			saveLink.value = "...";
 			embedLink.value = "...";
 			Save.uploadModel();
@@ -122,9 +122,9 @@ Editor.create = function(){
 		Editor.dom.appendChild(saveChanges);
 
 		// Save your changes, label & link, label & embed
-		
+
 		// save label
-		var saveLabel = Editor.createLabel("when you save your model, you'll get a link here:")
+		var saveLabel = Editor.createLabel("保存之后你会在此得到一个链接：")
 		saveLabel.style.display = "block";
 		saveLabel.style.margin = "10px 0";
 		Editor.dom.appendChild(saveLabel);
@@ -139,8 +139,8 @@ Editor.create = function(){
 		};
 		Editor.dom.appendChild(saveLink);
 
-		// embed label 
-		var embedLabel = Editor.createLabel("and an embed code here:")
+		// embed label
+		var embedLabel = Editor.createLabel("和一个嵌入代码：")
 		embedLabel.style.display = "block";
 		embedLabel.style.margin = "10px 0";
 		Editor.dom.appendChild(embedLabel);
@@ -163,33 +163,30 @@ Editor.create = function(){
 		// on save success
 		subscribe("/save/success",function(link){
 
-			saveLabel.innerHTML = "here you go! <a href='"+link+"' target='_blank'>(open in new tab)</a>";
+			saveLabel.innerHTML = "完成！ <a href='"+link+"' target='_blank'>（在新标签页打开）</a>";
 			saveLink.value = link;
-			embedLabel.innerHTML = "to embed it, paste this code in your site:";
+			embedLabel.innerHTML = "在你的网站粘贴这段代码来嵌入：";
 
 			var width = 800;
 			var height = Math.round(width/(document.body.clientWidth/document.body.clientHeight));
 			embedLink.value = '<iframe width="'+width+'" height="'+height+'" src="'+link+'" frameborder="0"></iframe>';
-			
+
 		});
 
 		// Export your data
 		var exportModel = document.createElement("div");
 		exportModel.className = "editor_fancy_button";
 		exportModel.id = "save_changes";
-		exportModel.innerHTML = "<span style='font-size:25px; line-height:35px; font-family:monospace'>{}</span>export model";
+		exportModel.innerHTML = "<span style='font-size:25px; line-height:35px; font-family:monospace'>{}</span>导出模型";
 		exportModel.onclick = function(){
 			window.open("data:text/json;charset=utf-8, "+JSON.stringify(Model.data));
 		};
 		Editor.dom.appendChild(exportModel);
 
-		// export label 
+		// export label
 		var exportLabel = Editor.createLabel(
-			"This is for those of you who want to save your sim to your own computertron! "+
-			"<a href='https://github.com/ncase/simulating#how-to-run-this-on-your-own-computertron' target='_blank'>[How To Do That]</a> "+
-			"Click the above button to open your sim's data in a new tab. "+
-			"Save it as <span style='font-family:monospace'>[your sim name].json</span>. "+
-			"(Remember the \".json\"! It's important!)"
+			"这是提供给那些想要把模拟保存在自己的电脑上的人的！"+
+			"<a href='https://github.com/ncase/simulating#how-to-run-this-on-your-own-computertron' target='_blank'>点此查看使用方法</a> "
 		);
 		exportLabel.style.display = "block";
 		exportLabel.style.margin = "10px 0";
@@ -365,7 +362,7 @@ Editor.createActionsUI = function(actionConfigs, dom){
 		// The actual action
 		var actionDOM = Editor.createActionUI(actionConfigs[i]);
 		entry.appendChild(actionDOM);
-		
+
 	}
 
 	// Add action?
@@ -373,7 +370,7 @@ Editor.createActionsUI = function(actionConfigs, dom){
 	var addAction = Editor.createActionAdder(actionConfigs, dom);
 	entry.appendChild(addAction);
 	list.appendChild(entry);
-	
+
 	// Return dom
 	return dom;
 
@@ -435,7 +432,7 @@ Editor.createActionAdder = function(actionConfigs, dom){
 	var selectContainer = document.createElement("div");
 	selectContainer.className ="editor_new_action";
 	var button = document.createElement("div");
-	button.innerHTML = "+new";
+	button.innerHTML = "+添加";
 	selectContainer.appendChild(button);
 	selectContainer.appendChild(select);
 
@@ -455,7 +452,7 @@ Editor.createSelector = function(keyValues, actionConfig, propName, options){
 
 	// Populate options: icon + name for each state, value is the ID.
 	for(var i=0;i<keyValues.length;i++){
-		
+
 		var keyValue = keyValues[i];
 
 		// Create option
@@ -476,7 +473,7 @@ Editor.createSelector = function(keyValues, actionConfig, propName, options){
 	select.onchange = function(){
 		actionConfig[propName] = select.value;
 	};
-	
+
 	// Return
 	return select;
 
@@ -494,7 +491,7 @@ Editor.createStateSelector = function(actionConfig, propName){
 		var stateConfigs = Model.data.states;
 		var selectedAnOption = false;
 		for(var i=0;i<stateConfigs.length;i++){
-			
+
 			var stateConfig = stateConfigs[i];
 
 			// Create option
@@ -537,7 +534,7 @@ Editor.createStateSelector = function(actionConfig, propName){
 		unsubscribe(_listener2);
 	});
 
-	
+
 	// Return
 	return select;
 
@@ -561,7 +558,7 @@ Editor.createNumber = function(actionConfig, propName, options){
 
 	// Decode value
 	var _decodeValue = function(){
-		
+
 		var number;
 
 		// Integer or not
@@ -593,7 +590,7 @@ Editor.createNumber = function(actionConfig, propName, options){
 
 		// Message?
 		if(options.message) publish(options.message);
-		
+
 	};
 
 	// When move away, fix it.
@@ -697,7 +694,7 @@ Editor.createProportions = function(){
 	var _createSnapshot = function(){
 		snapshot = [];
 		for(var i=0;i<proportions.length;i++){
-			snapshot.push(proportions[i].parts); 
+			snapshot.push(proportions[i].parts);
 		}
 	};
 	var _adjustAll = function(){
@@ -723,7 +720,7 @@ Editor.createProportions = function(){
 		for(var i=0;i<snapshot.length;i++){
 			if(i!=selectedIndex) total+=snapshot[i];
 		}
-		
+
 		// EDGE CASE: If old total IS ZERO, bump everything else by one.
 		if(total==0){
 			for(var i=0;i<snapshot.length;i++){
@@ -783,7 +780,7 @@ Editor.createProportions = function(){
 /////////////////////////
 
 var EditorShortcuts = function(dom){
-	
+
 	var self = this;
 	self.dom = dom;
 

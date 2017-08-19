@@ -59,7 +59,7 @@ if(UI.options.bg==UI.NONE){
 ///// PLAY CONTROLS /////
 /////////////////////////
 
-// RESET 
+// RESET
 var play_reset = document.getElementById("play_reset");
 play_reset.onclick = function(){
 	Grid.reinitialize();
@@ -73,10 +73,10 @@ play_pause.onclick = function(){
 };
 var updatePauseUI = function(){
 	if(Model.isPlaying){
-		play_pause.innerHTML = "pause";
+		play_pause.innerHTML = "暂停";
 		play_pause.setAttribute("paused",false);
 	}else{
-		play_pause.innerHTML = "play";
+		play_pause.innerHTML = "开始";
 		play_pause.setAttribute("paused",true);
 	}
 };
@@ -114,7 +114,7 @@ subscribe("/meta/reset/complete",function(){
 var play_draw = document.getElementById("play_draw");
 var play_draw_icon = document.querySelector("#play_draw > div");
 play_draw.onclick = function(){
-	
+
 	// Get what the next state should be
 	var state = Model.getStateByID(Model.data.meta.draw);
 	var stateIndex = Model.data.states.indexOf(state);
@@ -170,7 +170,7 @@ function bline(x0, y0, x1, y1) {
 	var coords = [];
 
 	var dx = Math.abs(x1 - x0), sx = x0 < x1 ? 1 : -1;
-	var dy = Math.abs(y1 - y0), sy = y0 < y1 ? 1 : -1; 
+	var dy = Math.abs(y1 - y0), sy = y0 < y1 ? 1 : -1;
 	var err = (dx>dy ? dx : -dy)/2;
 
 	while (true) {
@@ -186,7 +186,7 @@ function bline(x0, y0, x1, y1) {
 }
 
 Grid.domContainer.addEventListener("mousedown",function(event){
-	
+
 	// Real Mouse
 	Mouse.pressed = true;
 	getRealMouse(event);
@@ -209,11 +209,11 @@ Grid.domContainer.addEventListener("mousemove",function(event){
 	MouseLast.x = Mouse.x;
 	MouseLast.y = Mouse.y;
 	getRealMouse(event);
-	
+
 	// Get & Change Moused Tiles
 	getMousedTiles();
 	changeTiles();
-	
+
 },false);
 window.addEventListener("mouseup",function(event){
 	Mouse.pressed = false;
@@ -281,7 +281,7 @@ exports._makeScrubbable = function(input){
 
 };
 window.addEventListener("mousemove",function(e){
-	
+
 	// Mouse2
 	Mouse2.x = e.clientX;
 	Mouse2.y = e.clientY;

@@ -190,7 +190,7 @@ Grid.updateAgents = function(){
 			if(icon!=currentIcon){
 				Grid.dom.children[y].children[x].innerHTML = icon;
 			}
-			
+
 		}
 	}
 
@@ -293,33 +293,33 @@ Grid.createUI = function(){
 	var config = Model.data.world;
 
 	return EditorHelper()
-			.label("This world is a ")
+			.label("世界大小为 ")
 			.number(config.size, "width", {
 				integer:true,
 				min:5, max:50,
 				step:1,
 				message:"/grid/reinitialize"
 			})
-			.label(" by ")
+			.label("×")
 			.number(config.size, "height", {
 				integer:true,
 				min:5, max:50,
 				step:1,
 				message:"/grid/reinitialize"
 			})
-			.label(" grid.")
+			.label("。")
 			.label("<br><br>")
-			.label("We start with this ratio of things:<br>")
+			.label("开始状态为：<br>")
 			.proportions()
 			.label("<br>")
-			.label("And each thing considers ")
+			.label("每个物体都以 ")
 			.selector([
-				{ name:"the 4 spots to its sides", value:Grid.NEIGHBORHOOD_NEUMANN },
-				{ name:"the 8 spots to its sides & corners", value:Grid.NEIGHBORHOOD_MOORE }
+				{ name:"边上的 4 个地块", value:Grid.NEIGHBORHOOD_NEUMANN },
+				{ name:"边上和对角的 8 个地块", value:Grid.NEIGHBORHOOD_MOORE }
 			],config,"neighborhood",{
 				maxWidth: "none"
 			})
-			.label(" to be its neighboring spots.")
+			.label(" 作为相邻块。")
 			.dom;
 
 };

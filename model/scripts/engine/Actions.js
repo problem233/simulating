@@ -13,7 +13,7 @@ exports.Actions = {};
 
 // Perform Actions. Recursive.
 exports.PerformActions = function(agent, actionConfigs){
-	
+
 	// To tell if the agent's switched states.
 	// As soon as it does that, STOP DOING ACTIONS
 	var initialNextState = agent.nextStateID;
@@ -25,23 +25,23 @@ exports.PerformActions = function(agent, actionConfigs){
 		action.step(agent,config);
 		if(agent.nextStateID!=initialNextState) return;
 	}
-	
+
 };
 
 // GO_TO_STATE: Simply go to that state
 Actions.go_to_state = {
-	
-	name: "Turn into...",
+
+	name: "变成……",
 
 	props: {stateID:0},
-	
+
 	step: function(agent,config){
 		agent.nextStateID = config.stateID;
 	},
 
 	ui: function(config){
 		return EditorHelper()
-				.label("Turn into ")
+				.label("变成 ")
 				.stateSelector(config, "stateID")
 				.dom;
 	}
@@ -50,8 +50,8 @@ Actions.go_to_state = {
 
 // IF_NEIGHBOR: If more/less/equal X neighbors are a certain state, do a thing
 Actions.if_neighbor = {
-	
-	name: "If certain number of certain neighbors...",
+
+	name: "如果与特定数量的特定物体相邻……",
 
 	props: {
 		sign: ">=",
@@ -95,13 +95,13 @@ Actions.if_neighbor = {
 	ui: function(config){
 
 		return EditorHelper()
-				.label("If ")
+				.label("若与 ")
 				.selector([
-					{ name:"less than (<)", value:"<" },
-					{ name:"up to (≤)", value:"<=" },
-					{ name:"more than (>)", value:">" },
-					{ name:"at least (≥)", value:">=" },
-					{ name:"exactly (=)", value:"=" }
+					{ name:"少于 (<)", value:"<" },
+					{ name:"最多 (≤)", value:"<=" },
+					{ name:"多于 (>)", value:">" },
+					{ name:"至少 (≥)", value:">=" },
+					{ name:"刚好 (=)", value:"=" }
 				],config,"sign")
 				.label(" ")
 				.number(config, "num", {
@@ -109,8 +109,9 @@ Actions.if_neighbor = {
 					min:0, max:8,
 					step:1
 				})
-				.label(" neighbors are ")
-				.stateSelector(config, "stateID")
+				.label(" 个 ")
+        .stateSelector(config, "stateID")
+        .label(" 相邻，则")
 				.actionsUI(config.actions)
 				.dom;
 
@@ -120,8 +121,8 @@ Actions.if_neighbor = {
 
 // IF_RANDOM: With a X% chance, do a thing
 Actions.if_random = {
-	
-	name: "With a X% chance...",
+
+	name: "有 X% 的几率……",
 
 	props: {
 		probability: 0.01,
@@ -140,13 +141,13 @@ Actions.if_random = {
 	ui: function(config){
 
 		return EditorHelper()
-				.label("With a ")
+				.label("有 ")
 				.number(config, "probability", {
 					multiplier:100,
 					min:0, max:100,
 					step:0.1
 				})
-				.label("% chance,")
+				.label("% 的几率：")
 				.actionsUI(config.actions)
 				.dom;
 
@@ -154,10 +155,10 @@ Actions.if_random = {
 
 };
 
-// MOVE_TO: Move to a (nearby|global) (state) spot in and leave behind (state) 
+// MOVE_TO: Move to a (nearby|global) (state) spot in and leave behind (state)
 Actions.move_to = {
-	
-	name: "Move to...",
+
+	name: "移动到……",
 
 	props: {
 		space: 0,
@@ -199,18 +200,18 @@ Actions.move_to = {
 	ui: function(config){
 
 		return EditorHelper()
-				.label("Move to ")
+				.label("移动到 ")
 				.selector([
-					{ name:"a neighboring", value:0 },
-					{ name:"any", value:1 }
+					{ name:"相邻的", value:0 },
+					{ name:"任意的", value:1 }
 				],config,"space")
 				.stateSelector(config, "spotStateID")
-				.label(" spot & leave behind ")
+				.label(" 并留下 ")
 				.stateSelector(config, "leaveStateID")
 				.dom;
 
 	}
 
-}; 
+};
 
 })(window);
