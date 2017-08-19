@@ -179,7 +179,8 @@ Editor.create = function(){
 		exportModel.id = "save_changes";
 		exportModel.innerHTML = "<span style='font-size:25px; line-height:35px; font-family:monospace'>{}</span>导出模型";
 		exportModel.onclick = function(){
-			window.open("data:text/json;charset=utf-8, "+JSON.stringify(Model.data));
+      var blob = new Blob([JSON.stringify(Model.data)], {type: "text/json;charset=utf-8"});
+      saveAs(blob, "model.json");
 		};
 		Editor.dom.appendChild(exportModel);
 
