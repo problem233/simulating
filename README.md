@@ -2,9 +2,10 @@
 ![](http://i.imgur.com/O89JmOd.gif)
 
 An interactive guide to thinking in systems.
-**[READ/PLAY HERE](http://ncase.me/simulating)**
+**[READ/PLAY HERE](http://problem233.github.io/simulating/)**
 
 Made by Nicky Case: [@ncasenmare](https://twitter.com/ncasenmare) | [ncase.me](http://ncase.me)
+Translated by Problem233: [website](https://problem233.github.io/)
 
 Dedicated to the public domain with [Creative Commons Zero](https://creativecommons.org/publicdomain/zero/1.0/)! I'm giving away all my art/code/words, so that you teachers, scientists, hobbyists, activists, and emoji-lovers can use them however you like! This is for you. 💜
 
@@ -13,13 +14,13 @@ How To Run This On Your Own Computertron
 
 Yeah basically just download this github repository, and host it on some local server. I use the minimalist [http-server](https://www.npmjs.com/package/http-server), but you can also use [MAMP](https://www.mamp.info/en/). (*Simulating The World* is just a bunch of static files, but it needs to be on a server because of some weird browser security issues with XMLHttpRequests)
 
-###Saving your own sims locally:
+### Saving your own sims locally:
 
 1. Get it running on your own computertron (see above). For the sake of this example, let's assume it's running on `http://localhost:8080/`. (which it will by default, if you use http-server)
 2. Go to `http://localhost:8080/model`, and make your own sim!
 3. Click "export model". Your simulation's data should pop up in a new tab.
 4. Save it locally to `[your local folder]/model/models`, as `[your sim name].json`. (NOTE: the ".json" extension is important!)
-5. Finally, to see your own sim in action, go to `http://localhost:8080/model?local=[your sim name]`! Voilà! And you can keep editing and exporting from there, just copy-paste the new data to `[your sim name].json`.
+5. Finally, to see your own sim in action, go to `http://localhost:8080/model/?local=[your sim name]`! Voilà! And you can keep editing and exporting from there, just copy-paste the new data to `[your sim name].json`.
 
 Other Peeps' Stuff I Used
 ---
