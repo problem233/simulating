@@ -1,6 +1,6 @@
 {
     "meta": {
-        "description": "When making your sim, remember the KISS Principle: Keep It Simple, Sucka.\n\nAt the bottom of this sidebar, you can SAVE and SHARE your sim. Have fun! 😘",
+        "description": "制作模拟时别忘了 KISS 原则：保持简约。\n\n在这个边栏的底部，你可以保存、分享你的模拟。玩得开心！😘",
         "draw": 2,
         "fps": 30,
         "play": true
@@ -9,7 +9,7 @@
         {
             "id": 0,
             "icon": "",
-            "name": "empty spot",
+            "name": "空地",
             "actions": [
                 {
                     "type": "if_random",
@@ -23,12 +23,12 @@
                     ]
                 }
             ],
-            "description": "Grows trees."
+            "description": "生长树木。"
         },
         {
             "id": 1,
             "icon": "🌲",
-            "name": "tree",
+            "name": "树",
             "actions": [
                 {
                     "type": "if_random",
@@ -55,12 +55,12 @@
                     ]
                 }
             ],
-            "description": "Catches on fire if hit by lightning, or if a neighbor's on fire."
+            "description": "当被闪电击中或有相邻格子着火时着火。"
         },
         {
             "id": 2,
             "icon": "🔥",
-            "name": "fire",
+            "name": "火",
             "actions": [
                 {
                     "stateID": 0,
@@ -68,7 +68,7 @@
                     "actions": []
                 }
             ],
-            "description": "Burns away."
+            "description": "烧掉一切。"
         }
     ],
     "world": {

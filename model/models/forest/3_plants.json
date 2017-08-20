@@ -1,6 +1,6 @@
 {
     "meta": {
-        "description": "===== EXPERIMENT #1 =====\n\n[PAUSE] then [RESET] sim.\n\nDraw walls to divide the grid into a dozen or more sections. Again, walls can be curvy & unequal. \n\nHit [PLAY]. What happens? Why?\n\n===== EXPERIMENT #2 =====\n\n[PAUSE] then [RESET] sim. \n\nGive the Empty Spot a new rule: “With a 1% chance, turn into fire.” \n\nHit [PLAY]. What happens? Why?",
+        "description": "===== 实验 #1 =====\n\n【暂停】并【重置】模拟。\n\n按住并在网格上拖动来画出墙，（墙可以是曲线）来把世界分成几块，大小依然可以不一致。\n\n按下【开始】，发生了什么？为什么？\n\n===== 实验 #2 =====\n\n【暂停】并【重置】模拟。\n\n为空地添加一条新规则：“有 1% 的几率变成火。”\n\n按下【开始】，发生了什么？为什么？",
         "draw": 6,
         "fps": 60
     },
@@ -8,7 +8,7 @@
         {
             "id": 0,
             "icon": "",
-            "name": "empty spot",
+            "name": "空地",
             "actions": [
                 {
                     "type": "if_random",
@@ -33,12 +33,12 @@
                     "type": "if_random"
                 }
             ],
-            "description": "Grows Strongs & Jerks.\n\n(FOR EXPERIMENT #2: Click the LAST \"+new\" to add this new rule: “With a 1% chance, turn into fire.”)"
+            "description": "生长强壮的树与病树。\n\n（对于实验 #2：点击最后的“+新建”按钮来添加一条新规则：“有 1% 的几率变成火。”）"
         },
         {
             "id": 1,
             "icon": "🌳",
-            "name": "strong tree",
+            "name": "流氓树",
             "actions": [
                 {
                     "sign": ">=",
@@ -67,12 +67,12 @@
                     "type": "if_neighbor"
                 }
             ],
-            "description": "Invincible to fire, but can be choked out by Jerks, Also, gets killed by tree-killers."
+            "description": "防火，但会被流氓树夺取营养而死。也会被树木杀手杀死。"
         },
         {
             "id": 5,
             "icon": "🌱",
-            "name": "jerk tree",
+            "name": "流氓树",
             "actions": [
                 {
                     "probability": 0.0001,
@@ -112,12 +112,12 @@
                     "type": "if_neighbor"
                 }
             ],
-            "description": "Flammable, and sometimes spontaneously catches on fire. Also, gets killed by tree-killers."
+            "description": "易燃，有时会自燃。也会被树木杀手杀死。"
         },
         {
             "id": 2,
             "icon": "🔥",
-            "name": "fire",
+            "name": "火",
             "actions": [
                 {
                     "type": "go_to_state",
@@ -125,13 +125,13 @@
                     "actions": []
                 }
             ],
-            "description": "Burns away."
+            "description": "烧掉一切。"
         },
         {
             "id": 6,
             "icon": "✂︎",
-            "name": "tree killer",
-            "description": "I AM THE END, AND THERE SHALL BE NO MERCY.",
+            "name": "树木杀手",
+            "description": "我就是终结，这里没有仁慈。",
             "actions": []
         }
     ],

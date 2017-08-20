@@ -1,6 +1,6 @@
 {
     "meta": {
-        "description": "Seems peaceful & mixed, but is a powder keg. Click around the grid 'til a conflict EXPLODES.\n\n💥: Conflict. A 50/50 chance a cat or dog \"wins\" the spot.\n🐱🐶: Peaceful. If a neighbor gets beaten up, they'll get angry. They gots grievances.\n😾🐺: Angry. If four angry cats surround a dog, they'll attack it. Same for dogs attacking cats.\n\nWhat emerges:\n* Conflict hits a tipping point, and grows in bursts, not smoothly.\n* One angry group emerges, then counter-forces emerge, who might be even more violent.\n* Can result in one group dominating, or a \"stable\" war.",
+        "description": "看似是和平的混居，但其实是一个炸药桶。点击网格直到冲突爆发。\n\n💥：冲突 猫和狗各有一半的几率“赢得”这个地块。\n🐱🐶：和平 如果邻居被殴打，他们会愤怒。\n😾🐺：愤怒。如果四只愤怒的猫围着一只狗，他们会攻击它。狗攻击猫也同理。\n\n发生了什么：\n* 冲突进入了临界点，并且爆发发展并不顺利。\n* 一个愤怒的群体出现，然后可能更暴力的反击群体出现。\n* 可能导致一个群体主宰或引发“稳定”的战争。",
         "draw": 5,
         "fps": 60
     },
@@ -8,15 +8,15 @@
         {
             "id": 0,
             "icon": "",
-            "name": "empty spot",
-            "description": "Nobody's here.",
+            "name": "空地",
+            "description": "这里没人。",
             "actions": []
         },
         {
             "id": 1,
             "icon": "🐱",
-            "name": "cat",
-            "description": "Peaceful, until conflict happens to someone they know. Also, can be attacked by angry dogs.",
+            "name": "猫",
+            "description": "会保持平和，直到周围爆发冲突。会被愤怒的狗攻击。",
             "actions": [
                 {
                     "sign": ">=",
@@ -49,8 +49,8 @@
         {
             "id": 2,
             "icon": "😾",
-            "name": "angry cat",
-            "description": "Has real grievances. Can still be attacked by angry dogs.",
+            "name": "愤怒的猫",
+            "description": "感到非常不平，仍然会被愤怒的狗攻击。",
             "actions": [
                 {
                     "sign": ">=",
@@ -70,8 +70,8 @@
         {
             "id": 3,
             "icon": "🐶",
-            "name": "dog",
-            "description": "Peaceful, until conflict happens to someone they know. Also, can be attacked by angry cats.",
+            "name": "狗",
+            "description": "会保持平和，直到周围爆发冲突。会被愤怒的猫攻击。",
             "actions": [
                 {
                     "sign": ">=",
@@ -104,8 +104,8 @@
         {
             "id": 4,
             "icon": "🐺",
-            "name": "angry dog",
-            "description": "Has real grievances. Can still be attacked by angry cats.",
+            "name": "愤怒的狗",
+            "description": "感到非常不平，仍然会被愤怒的猫攻击。",
             "actions": [
                 {
                     "sign": ">=",
@@ -125,8 +125,8 @@
         {
             "id": 5,
             "icon": "💥",
-            "name": "conflict",
-            "description": "Cats and dogs are equally likely to \"win\" the violent conflict.",
+            "name": "冲突",
+            "description": "猫和狗各有一半的几率在暴力冲突中“获胜”",
             "actions": [
                 {
                     "probability": 0.05,

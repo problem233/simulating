@@ -1,6 +1,6 @@
 {
     "meta": {
-        "description": "===== EXPERIMENT =====\n\n✂︎ Tree Killers, as their name suggests, kill trees next to them.\n\nClick-and-drag on the grid to draw walls of ✂︎, (walls can be curvy) to divide the world up into a dozen or more sections. (sections can be unequal)\n\nWhen you're done, hit [PLAY]! What happens now? And why?\n\n(P.S: you can now control the sim's speed, or go step-by-step)",
+        "description": "===== 实验 =====\n\n✂︎ 树木杀手，顾名思义，杀死周围的树。\n\n按住并在网格上拖动来画出✂︎的墙，（墙可以是曲线）来把世界分成几块。（大小可以不一致）\n\n完成后按【开始】！现在发生了什么？为什么？\n\n（P.S：你现在可以控制模拟的速度或者单步执行）",
         "draw": 3,
         "fps": 30
     },
@@ -8,7 +8,7 @@
         {
             "id": 0,
             "icon": "",
-            "name": "empty spot",
+            "name": "空地",
             "actions": [
                 {
                     "type": "if_random",
@@ -22,12 +22,12 @@
                     ]
                 }
             ],
-            "description": "Grows trees."
+            "description": "生长树木。"
         },
         {
             "id": 1,
             "icon": "🌲",
-            "name": "tree",
+            "name": "树",
             "actions": [
                 {
                     "type": "if_random",
@@ -66,12 +66,12 @@
                     "type": "if_neighbor"
                 }
             ],
-            "description": "Catches on fire if hit by lightning, or if a neighbor's on fire. If next to a Tree Killer, it gets cut down."
+            "description": "当被闪电击中或有相邻格子着火时着火。如果与树木杀手相邻就会被砍倒。"
         },
         {
             "id": 2,
             "icon": "🔥",
-            "name": "fire",
+            "name": "火",
             "actions": [
                 {
                     "type": "go_to_state",
@@ -79,13 +79,13 @@
                     "actions": []
                 }
             ],
-            "description": "Burns away."
+            "description": "烧掉一切。"
         },
         {
             "id": 3,
             "icon": "✂︎",
-            "name": "tree killer",
-            "description": "Cuts down trees near it. (this rule is in the Tree section)",
+            "name": "树木杀手",
+            "description": "砍倒周围的树木（规则在“树”区块下）",
             "actions": []
         }
     ],

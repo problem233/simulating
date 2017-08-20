@@ -1,6 +1,6 @@
 {
     "meta": {
-        "description": "You can edit EVERYTHING in these sims. The rules, the art, even this text! In fact, all the sims in this post were made with *this exact same editor*.\n\nClick the grid to start fire, or scroll down to change the art & rules!",
+        "description": "你可以编辑这个模拟里的所有东西，包括规则、图标，甚至这段文字！实际上，这篇文章里的所有模拟都是都是用*这个完全相同的编辑器*制作的。\n\n点击网格引发火灾，或者往下滚动来修改图标和规则！",
         "draw": 2,
         "fps": 15
     },
@@ -8,7 +8,7 @@
         {
             "id": 0,
             "icon": "",
-            "name": "empty spot",
+            "name": "空地",
             "actions": [
                 {
                     "type": "if_random",
@@ -22,12 +22,12 @@
                     ]
                 }
             ],
-            "description": "Below are the rules for Empty Spots. You can freely change rules, even add new rules, and they'll take effect immediately! Try it out:"
+            "description": "下面这些是空地的规则。你可以自由修改规则，甚至添加新规则，它们都会立刻见效！试试看："
         },
         {
             "id": 1,
             "icon": "🌲",
-            "name": "tree",
+            "name": "树",
             "actions": [
                 {
                     "sign": ">=",
@@ -43,13 +43,13 @@
                     "type": "if_neighbor"
                 }
             ],
-            "description": "You can also change the art! Just click the icon & paste in a new emoji. Here's a few you can copy-paste in:\n🍀🎄🌵🌴🌿\n\nOther ways to get emoji:\nMac: press control+command+space\nOther: copy from Emojipedia.org"
+            "description": "你也可以修改图标！只要点击图标并粘贴一个新 emoji。这里有些你可以复制的 emoji：\n🍀🎄🌵🌴🌿"
         },
         {
             "id": 2,
             "icon": "🔥",
-            "name": "fire",
-            "description": "Finally, you can even create new things with rules! The only limit is your\n✨🌟IMAGINATION🌟✨",
+            "name": "火",
+            "description": "最后，你还可以添加新物体！唯一的限制就是你的\n✨🌟想象力🌟✨",
             "actions": [
                 {
                     "stateID": 0,

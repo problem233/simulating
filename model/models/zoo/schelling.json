@@ -1,6 +1,6 @@
 {
     "meta": {
-        "description": "Rodents are slightly biased, but only slightly. Each one thinks: \"If less than half of my neighbors are like me, I'll move somewhere else.\" And though everyone's OK with an equal neighborhood, when you hit [PLAY]... bam.\n\nThis may seem like a depressing outcome, but I took away a more hopeful message: evil systems can still be filled with *good people*. We just gotta be very, very clever, and compassionate, to help them find their goodness.\n\n(This model was made by Nobel Prize-winner, Thomas Schelling)",
+        "description": "啮齿类动物略有偏见，但非常轻微。每个人都想：“如果不到一半的邻居和我一样，我就移动到别的地方。”尽管每个人都与平衡的社区相容，但是当你按下【开始】……\n\n这似乎是一个令人沮丧的结果，但我看出了一个更有希望的信息：邪恶的系统也可以充满了*好人*。我们只需要做得非常聪明、同情，来帮助他们发现自己的美好。\n\n（这个模型是由诺贝尔奖得主托马斯·谢林所作）",
         "draw": 0,
         "fps": 10
     },
@@ -8,14 +8,14 @@
         {
             "id": 0,
             "icon": "",
-            "name": "empty spot",
+            "name": "空地",
             "actions": [],
-            "description": "Nobody's here."
+            "description": "这里没人"
         },
         {
             "id": 1,
             "icon": "🐭",
-            "name": "mouse",
+            "name": "老鼠",
             "actions": [
                 {
                     "sign": "<",
@@ -33,12 +33,12 @@
                     "type": "if_neighbor"
                 }
             ],
-            "description": "If less than half (4 out of 8 spots) of my neighbors are mice, I'll move somewhere else on the grid."
+            "description": "如果我不到一半（8 块中的 4 块）的邻居是老鼠，我就移动到网格上的其他位置。"
         },
         {
             "id": 2,
             "icon": "🐹",
-            "name": "hamster",
+            "name": "仓鼠",
             "actions": [
                 {
                     "sign": "<",
@@ -56,7 +56,7 @@
                     "type": "if_neighbor"
                 }
             ],
-            "description": "If less than half (4 out of 8 spots) of my neighbors are hamsters, I'll move somewhere else on the grid."
+            "description": "如果我不到一半（8 块中的 4 块）的邻居是仓鼠，我就移动到网格上的其他位置。"
         }
     ],
     "world": {
